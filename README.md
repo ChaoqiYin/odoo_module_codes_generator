@@ -24,7 +24,7 @@
 2. 在Navicat for PostgreSQL(后面简称nfp)中建立模型时，table的名称即为odoo中每个model的对应名称
     <img height="200px" src="img/model_name.png"/>
 
-3. nfp模型中的id字段会自动忽略不生成；如果勾选了**Not Null**选项，会在生成field时建立属性`required=True`；如果字段的**Default Value**处有值，会在生成field时建立属性`default=...`；如果字段的**Comment**处有值，会在生成field时建立属性`string=...`  
+3. nfp模型中的id字段会自动忽略不生成；如果勾选了**Not Null**选项，会在生成field时建立属性`required=True`；如果字段的**Default Value**处有值，会在生成field时建立属性`default=...`；如果字段的**Comment**处有值，会在生成field时建立属性`string=...`  
     <img height="400px" src="img/field_info.png"/>
 
 4. Many2one字段的建立根据Foreign Key关系链生成，会将外键字段从任意类型装换成Many2one类型，并在对应表中自动生成对应的One2many字段，Not Null等属性同样适用于Many2one字段  
