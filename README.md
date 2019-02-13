@@ -1,5 +1,5 @@
 # [Odoo](https://github.com/odoo/odoo "Odoo's github")模块代码生成器
-该项目能根据sql文件的内容生成odoo模块的model和view基本代码
+该项目能根据sql文件的内容生成odoo模块的model和view基本代码
 
 ## 依赖项
 > python版本: 3.5+   
