@@ -1,3 +1,55 @@
+# [Odoo](https://github.com/odoo/odoo "Odoo's github") Module Codes Generator
+this tool can generate codes for odoo with a file of sql
+
+## Depends:
+> python: 3.5+   
+> pip: sqlparse 0.2.4
+
+## Gui for create the files of sql:
+> recommend use **Navicat for PostgreSQL** 12.1
+
+## Explain:
+1. This tool can analyze sql to generates the **Char、Text、Int、Float、Bool、Date、DateTime、Binary、Many2one、One2many、Many2many** fields in Odoo  
+The fields correspond to words in sql：
+    ```python
+    ['varchar', 'char']: Char
+    ['text']: Text
+    ['int', 'int2', 'int4', 'int8']: Int
+    ['float4', 'float8']: Float
+    ['bool']: Bool
+    ['time']: DateTime
+    ['bytea']: Binary
+    ```
+
+1. When creating model in the Navicat for PostgreSQL(nfp)，the model's name in odoo correspond to the table's name in sql
+    <img height="200px" src="img/model_name.png"/>
+
+2. The id field in nfp's model will be ignored；if you checked **Not Null** ，the tool will generates `required=True` in field；if the **Default Value** has values，the tool will generates `default=...` in field；if the **Comment** has values，the tool will generates `string=...`  in field
+    <img height="400px" src="img/field_info.png"/>
+
+3. The field of **Many2one** will create by **Foreign Key relation**，the tool will convert any field in sql's model to **Many2one** field in Odoo，and auto generates **One2many** field in corresponding model，the field Equally applicable Not Null and so on  
+**注意：** **Foreign Key relation** can't begin with id  
+    <img height="200px" src="img/m2o.png"/>
+
+4. The field of **Many2many** will create by Foreign Key relation too，the different with **Many2one**，the **Foreign Key relation** can't end with id，and you must need set the name of **Foreign Key relation** begin with 'm2m'
+    <img height="200px" src="img/m2m.png"/>
+    <img height="300px" src="img/m2m_info.png"/>
+
+5. Run and create files:
+   ```python
+    import os
+    from generator import parse_sql
+
+    base_dir = os.path.dirname(__file__)  # 需要生成文件的路径
+    sql_path = os.path.join(base_dir, 't_code.sql')  # sql文件的路径
+
+
+    p = parse_sql.Parse(sql_path)  # 创建解析实例
+    p.create_files(base_dir, thread_num=2)  # 生成文件
+   ```
+
+---    
+
 # [Odoo](https://github.com/odoo/odoo "Odoo's github")模块代码生成器
 该项目能根据sql文件的内容生成odoo模块的model和view基本代码
 
@@ -9,7 +61,7 @@
 > 推荐**Navicat for PostgreSQL** 12.1
 
 ## 说明
-1. 该项目支持解析出Odoo内的Char、Text、Int、Float、Bool、Date、DateTime、Binary、Many2one、One2many、Many2many字段
+1. 该项目支持解析出Odoo内的Char、Text、Int、Float、Bool、Date、DateTime、Binary、Many2one、One2many、Many2many字段  
     对应sql中的数据类型为：
     ```python
     ['varchar', 'char']: Char
