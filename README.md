@@ -21,17 +21,17 @@ The fields correspond to words in sql：
     ['bytea']: Binary
     ```
 
-1. When creating model in the Navicat for PostgreSQL(nfp)，the model's name in odoo correspond to the table's name in sql
+1. When creating model in the Navicat for PostgreSQL(nfp)，the model's name in odoo correspond to the table's name in sql   
     <img height="200px" src="img/model_name.png"/>
 
-2. The id field in nfp's model will be ignored；if you checked **Not Null** ，the tool will generates `required=True` in field；if the **Default Value** has values，the tool will generates `default=...` in field；if the **Comment** has values，the tool will generates `string=...`  in field
+2. The id field in nfp's model will be ignored；if you checked **Not Null** ，the tool will generates `required=True` in field；if the **Default Value** has values，the tool will generates `default=...` in field；if the **Comment** has values，the tool will generates `string=...`  in field   
     <img height="400px" src="img/field_info.png"/>
 
-3. The field of **Many2one** will create by **Foreign Key relation**，the tool will convert any field in sql's model to **Many2one** field in Odoo，and auto generates **One2many** field in corresponding model，the field Equally applicable Not Null and so on  
-**注意：** **Foreign Key relation** can't begin with id  
+3. The field of **Many2one** will create by **Foreign Key relation**，the tool will convert any field in sql's model to **Many2one** field in Odoo，and auto generates **One2many** field in corresponding model，the field Equally applicable Not Null and so on   
+**注意：** **Foreign Key relation** can't begin with id   
     <img height="200px" src="img/m2o.png"/>
 
-4. The field of **Many2many** will create by Foreign Key relation too，the different with **Many2one**，the **Foreign Key relation** can't end with id，and you must need set the name of **Foreign Key relation** begin with 'm2m'
+4. The field of **Many2many** will create by Foreign Key relation too，the different with **Many2one**，the **Foreign Key relation** can't end with id，and you must need set the name of **Foreign Key relation** begin with 'm2m'   
     <img height="200px" src="img/m2m.png"/>
     <img height="300px" src="img/m2m_info.png"/>
 
