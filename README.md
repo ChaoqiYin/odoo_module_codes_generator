@@ -5,8 +5,8 @@ this tool can generate codes for odoo with a file of sql
 > python: 3.5+   
 > pip: sqlparse 0.2.4
 
-## Gui for create the files of sql:
-> recommend use **Navicat for PostgreSQL** 12.1
+## Gui for creating the files of sql:
+> recommend using **Navicat for PostgreSQL** 12.1
 
 ## Explain:
 1. This tool can analyze sql to generates the **Char、Text、Int、Float、Bool、Date、DateTime、Binary、Many2one、One2many、Many2many** fields in Odoo  
